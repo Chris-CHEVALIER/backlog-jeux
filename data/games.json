@@ -1,4 +1,78 @@
 {
   "version": 1,
-  "games": []
+  "games": [
+    {
+      "id": "d4ac93c5-d638-49eb-be97-b73fdf26f65f",
+      "title": "Final Fantasy Resonance",
+      "status": "playing",
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3259780/710da43babb2043f9f6ad0e50023e31167d94708/header.jpg",
+      "startDate": "2026-10-25",
+      "endDate": "",
+      "hours": 0,
+      "rating": null,
+      "hltb": {
+        "main": null,
+        "extra": 48,
+        "completionist": null
+      },
+      "sessions": [],
+      "priority": null,
+      "notes": "",
+      "released": "2026-10-22",
+      "genres": [
+        "RPG"
+      ],
+      "addedAt": "2026-10-25T18:34:13.000Z",
+      "updatedAt": "2026-10-25T18:34:13.000Z"
+    },
+    {
+      "id": "e0b47eef-9634-440a-9fd7-dbd5ce18e03e",
+      "title": "The Witcher 3: Wild Hunt – Remastered",
+      "status": "playing",
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/292030/8271f38ef726e44a5893374b8ebe8a2852c55b19/header_alt_assets_1_french.jpg",
+      "startDate": "2026-10-25",
+      "endDate": "",
+      "hours": 0,
+      "rating": null,
+      "hltb": {
+        "main": 57,
+        "extra": 123,
+        "completionist": 189
+      },
+      "sessions": [],
+      "priority": null,
+      "notes": "",
+      "released": "2026-09-29",
+      "genres": [
+        "RPG"
+      ],
+      "addedAt": "2026-10-25T18:34:13.000Z",
+      "updatedAt": "2026-10-25T18:34:13.000Z"
+    },
+    {
+      "id": "c7853f76-59dc-4540-94fa-a68d255f3a56",
+      "title": "Kingdom Hearts Final Mix",
+      "status": "playing",
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2552430/header.jpg",
+      "startDate": "2026-10-25",
+      "endDate": "",
+      "hours": 0,
+      "rating": null,
+      "hltb": {
+        "main": 24,
+        "extra": 33,
+        "completionist": 57
+      },
+      "sessions": [],
+      "priority": null,
+      "notes": "",
+      "released": "",
+      "genres": [
+        "Action",
+        "RPG"
+      ],
+      "addedAt": "2026-10-25T18:34:13.000Z",
+      "updatedAt": "2026-10-25T18:34:13.000Z"
+    }
+  ]
 }
