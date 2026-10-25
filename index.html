@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Backlog jeux vidéo</title>
+  <meta name="description" content="Les jeux que je termine, ceux en cours et ceux qui m'attendent.">
+  <meta name="theme-color" content="#0e1014">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script type="module" src="assets/js/app.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 6h10a5 5 0 0 1 5 5v2a5 5 0 0 1-5 5c-1.6 0-2.4-.8-3.2-1.6-.5-.5-1-.9-1.8-.9s-1.3.4-1.8.9C9.4 17.2 8.6 18 7 18a5 5 0 0 1-5-5v-2a5 5 0 0 1 5-5Zm0 3.5a.8.8 0 0 0-.8.8v1H5.2a.8.8 0 0 0 0 1.6h1v1a.8.8 0 0 0 1.6 0v-1h1a.8.8 0 0 0 0-1.6h-1v-1a.8.8 0 0 0-.8-.8Zm9.5 0a1.1 1.1 0 1 0 0 2.2 1.1 1.1 0 0 0 0-2.2Zm-2 2.6a1.1 1.1 0 1 0 0 2.2 1.1 1.1 0 0 0 0-2.2Z"/></svg>
+      <h1>Backlog</h1>
+    </div>
+    <div class="toolbar">
+      <label class="search">
+        <span class="visually-hidden">Rechercher un jeu</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10.5 4a6.5 6.5 0 0 1 5.2 10.4l4.4 4.4-1.4 1.4-4.4-4.4A6.5 6.5 0 1 1 10.5 4Zm0 2a4.5 4.5 0 1 0 0 9 4.5 4.5 0 0 0 0-9Z"/></svg>
+        <input id="search" type="search" placeholder="Rechercher un jeu" autocomplete="off">
+      </label>
+      <label class="sort">
+        <span class="visually-hidden">Trier</span>
+        <select id="sort"></select>
+      </label>
+      <span id="save-status" class="save-status" role="status" aria-live="polite"></span>
+      <button id="add-button" class="button primary" type="button" hidden>
+        <span aria-hidden="true">+</span> Ajouter
+      </button>
+      <button id="settings-button" class="icon-button" type="button" title="Réglages" aria-label="Réglages">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.6 2.5 14 5a7.6 7.6 0 0 1 1.9 1.1l2.4-.9 1.6 2.8-2 1.6a7.7 7.7 0 0 1 0 2.2l2 1.6-1.6 2.8-2.4-.9A7.6 7.6 0 0 1 14 19l-.4 2.5h-3.2L10 19a7.6 7.6 0 0 1-1.9-1.1l-2.4.9-1.6-2.8 2-1.6a7.7 7.7 0 0 1 0-2.2l-2-1.6 1.6-2.8 2.4.9A7.6 7.6 0 0 1 10 5l.4-2.5h3.2ZM12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <nav class="tabs" id="tabs" role="tablist" aria-label="Statuts"></nav>
+
+  <main id="main">
+    <p class="loading">Chargement…</p>
+  </main>
+
+  <dialog id="game-dialog" class="sheet"></dialog>
+
+  <dialog id="settings-dialog" class="sheet">
+    <form id="settings-form" method="dialog">
+      <header class="sheet-header">
+        <h2>Réglages</h2>
+        <button class="icon-button" value="cancel" formnovalidate aria-label="Fermer">✕</button>
+      </header>
+      <div class="sheet-body">
+        <p class="hint">Ces réglages restent dans ce navigateur. Sans token, la page est en lecture seule.</p>
+        <fieldset>
+          <legend>Dépôt GitHub</legend>
+          <div class="field-row">
+            <label>Propriétaire<input name="owner" autocomplete="off" spellcheck="false"></label>
+            <label>Dépôt<input name="repo" autocomplete="off" spellcheck="false"></label>
+            <label>Branche<input name="branch" autocomplete="off" spellcheck="false"></label>
+          </div>
+          <label>Token GitHub
+            <input name="token" type="password" autocomplete="off" spellcheck="false" placeholder="github_pat_…">
+          </label>
+          <p class="hint">
+            <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">Créez un token <em>fine-grained</em></a>
+            limité à ce seul dépôt, permission <strong>Contents</strong> en lecture et écriture.
+          </p>
+        </fieldset>
+        <fieldset>
+          <legend>Jaquettes</legend>
+          <label>Clé API RAWG
+            <input name="rawgKey" type="password" autocomplete="off" spellcheck="false">
+          </label>
+          <p class="hint">
+            Gratuite sur <a href="https://rawg.io/apiv2" target="_blank" rel="noopener">rawg.io/apiv2</a>.
+            Sans clé, vous pouvez coller l'adresse d'une image à la main.
+          </p>
+        </fieldset>
+        <fieldset>
+          <legend>Sauvegarde</legend>
+          <button id="export-button" class="button" type="button">Exporter en JSON</button>
+        </fieldset>
+      </div>
+      <footer class="sheet-footer">
+        <button class="button" value="cancel" formnovalidate>Annuler</button>
+        <button class="button primary" value="save">Enregistrer</button>
+      </footer>
+    </form>
+  </dialog>
+
+  <div id="toast" class="toast" role="alert" hidden></div>
+</body>
+</html>
